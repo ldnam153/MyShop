@@ -1,0 +1,64 @@
+﻿<Window x:Class="MyShop.Views.Popups.NotificationPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        xmlns:converters="clr-namespace:MyShop.Converters"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Add Product" Height="230" Width="350"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+       
+        Background="Transparent" AllowsTransparency="True"
+        ResizeMode="NoResize" FontFamily="Poppins">
+
+
+
+    <Border 
+        materialDesign:ShadowAssist.ShadowDepth="Depth5"
+        Background="{DynamicResource ThirdBackgroundColor}" Opacity="0.98"
+            CornerRadius="8">
+        <Grid materialDesign:ShadowAssist.ShadowDepth="Depth5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <TextBlock 
+                Grid.Row="0"
+                Text="{Binding TitleText}" FontSize="25" 
+                Margin="0 0 0 0"
+                Foreground="{DynamicResource PrimaryTextColor}" 
+                FontWeight="Bold"
+                VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock 
+                Grid.Row="1"
+                FontSize="20"
+                Margin="20 10 20 10"
+                TextWrapping="Wrap"
+                Text="{Binding Message}"
+                Foreground="{DynamicResource PrimaryTextColor}" 
+                VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+            <StackPanel 
+                Grid.Row="2"
+                Orientation="Horizontal" 
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+                <Button 
+                    Margin="0 0 0 0"
+                    Width="100"
+                    FontWeight="Bold"
+
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Name="Ok"
+                    Content="Ok" IsCancel="True"
+                    >
+
+                </Button>
+       
+            </StackPanel>
+        </Grid>
+
+    </Border>
+</Window>

@@ -1,0 +1,123 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Menu strings -->
+
+
+    <!-- Dashboard Page strings -->
+    <sys:String x:Key="Overview">Overview</sys:String>
+    <sys:String x:Key="TotalProducts">Total Products</sys:String>
+    <sys:String x:Key="Products">Products</sys:String>
+    <sys:String x:Key="Orders_in_this_week">Orders in this week</sys:String>
+    <sys:String x:Key="Orders">Orders</sys:String>
+    <sys:String x:Key="Orders_in_this_month">Orders in this month</sys:String>
+    <sys:String x:Key="SmallQuantityTitle">Product have small quantity in stock</sys:String>
+
+    
+    <sys:String x:Key="Category">Category</sys:String>
+    <sys:String x:Key="Quantity">Quantity</sys:String>
+    <sys:String x:Key="Price">Price</sys:String>
+
+   
+    <!-- Products Page strings -->
+    <sys:String x:Key="Search">Search</sys:String>
+    <sys:String x:Key="Filter">Filter</sys:String>
+    <sys:String x:Key="SmallQuantity">Small Quantity</sys:String>
+    <sys:String x:Key="Filterbyprice">Filter by price</sys:String>
+    <sys:String x:Key="LowPrice">Low price</sys:String>
+    <sys:String x:Key="HighPrice">High price</sys:String>
+    <!-- Orders Page strings -->
+    <sys:String x:Key="UncompletedOrder">Uncompleted Order</sys:String>
+    <sys:String x:Key="Filterbydate">Filter by date</sys:String>
+    <sys:String x:Key="From">From</sys:String>
+    <sys:String x:Key="To">To</sys:String>
+    <sys:String x:Key="OrderId">Order Id</sys:String>
+    <sys:String x:Key="TotalPrice">Total Price</sys:String>
+    <sys:String x:Key="Customer">Customer</sys:String>
+    <sys:String x:Key="Status">Status</sys:String>
+    <sys:String x:Key="LastUpdate">Last Update</sys:String>
+    <sys:String x:Key="Edit">Edit</sys:String>
+    <sys:String x:Key="Remove">Remove</sys:String>
+    <!-- Customers Page strings -->
+    <sys:String x:Key="Name">Name</sys:String>
+    <sys:String x:Key="Gender">Gender</sys:String>
+    <sys:String x:Key="PhoneNumber">Phone number</sys:String>
+    <!-- Statistics Page strings -->
+  
+    <sys:String x:Key="Revenueinthisweek">Revenue in this week</sys:String> 
+    <sys:String x:Key="Revenueinthismonth">Revenue in this month</sys:String>
+    <sys:String x:Key="Revenueinthisyear">Revenue in this year</sys:String>
+    <sys:String x:Key="BestSeller">Best Seller</sys:String> 
+    <sys:String x:Key="OtherStat">Other Statistics</sys:String>
+    <sys:String x:Key="Revenue">Revenue</sys:String>
+    <sys:String x:Key="Select">Select</sys:String>
+    <sys:String x:Key="Volume">'s sales volume</sys:String>
+    <sys:String x:Key="Last7weeks">Last 7 weeks</sys:String>
+    <sys:String x:Key="Last7months">Last 7 months</sys:String>
+    <sys:String x:Key="Last7years">Last 7 years</sys:String>
+    <sys:String x:Key="FromDateToDate">From Date to Date</sys:String>
+    <sys:String x:Key="ThisWeek">This Week</sys:String>
+    <sys:String x:Key="ThisMonth">This Month</sys:String>
+    <sys:String x:Key="ThisYear">This Year</sys:String>
+    <!-- Settings Page strings -->
+    <sys:String x:Key="Language">Language</sys:String>
+    <sys:String x:Key="English">English</sys:String>
+    <sys:String x:Key="Vietnamese">Vietnamese</sys:String>
+    <sys:String x:Key="ItemsPerPage">Items per page</sys:String>
+    <sys:String x:Key="Save">Save</sys:String>
+    <sys:String x:Key="Logout">Logout</sys:String>
+    
+    
+    <!-- AddProduct Window strings -->
+    <sys:String x:Key="Description">Description</sys:String>
+    <sys:String x:Key="Cancel">Cancel</sys:String>
+    <sys:String x:Key="NewProduct">New Product</sys:String>
+    
+    <!-- EditCustomer Window strings -->
+
+    <sys:String x:Key="Address">Address</sys:String>
+    <sys:String x:Key="EditCustomerTitle">Edit Customer's Information</sys:String>
+    <!-- EditProduct Window strings -->
+    <sys:String x:Key="EditProductTitle">Edit Product's Information</sys:String>
+
+    <!-- Main Window strings -->
+    <sys:String x:Key="Statistics">Statistics</sys:String>
+    <sys:String x:Key="Setting">Setting</sys:String>
+    <sys:String x:Key="Customers">Customers</sys:String>
+    <!-- Login Window strings -->
+    <sys:String x:Key="Login">Login</sys:String>
+    <sys:String x:Key="Password">Password</sys:String>
+    <sys:String x:Key="Username">Username</sys:String>
+    
+    <!-- NewCustomer Window strings -->
+    <sys:String x:Key="NewCustomer">New Customer</sys:String>
+
+    <!-- NewOrder Window strings -->
+    <sys:String x:Key="NewOrder">New Order</sys:String>
+    <sys:String x:Key="Product">Product</sys:String>
+    <sys:String x:Key="TypeOrder">Type order: </sys:String>
+    <sys:String x:Key="PreOrder">Pre-order</sys:String>
+    <sys:String x:Key="PayNow">Pay now</sys:String>
+    <sys:String x:Key="InStock">In stock</sys:String>
+    <!-- ViewDetailOrder Window strings -->
+    <sys:String x:Key="Order">Order</sys:String>
+    <sys:String x:Key="Inprogress"> (in progress)</sys:String>
+    <sys:String x:Key="completed"> (completed)</sys:String>
+    <sys:String x:Key="canceled"> (canceled)</sys:String>
+    <sys:String x:Key="OrderTime">Order time</sys:String>
+    <sys:String x:Key="CompletedTime">Completed time</sys:String>
+    <sys:String x:Key="Uncompleted">Uncompleted</sys:String>
+    <sys:String x:Key="canceledTime">Canceled time</sys:String>
+    <sys:String x:Key="CompletedNow">Completed now!</sys:String>
+    <sys:String x:Key="OrderStatus">Order status</sys:String>
+    <sys:String x:Key="Close">Close</sys:String>
+
+    <!--  Popup strings -->
+    <sys:String x:Key="EnterCategory">Enter Category</sys:String>
+    <sys:String x:Key="Action">Action</sys:String>
+    <sys:String x:Key="Yes">Yes</sys:String>
+    <sys:String x:Key="No">No</sys:String>
+    <sys:String x:Key="CustomerSelection">Customer Selection</sys:String>
+    <sys:String x:Key="ProductSelection">Product Selection</sys:String>
+</ResourceDictionary>

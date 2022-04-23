@@ -1,0 +1,228 @@
+﻿<Window x:Class="MyShop.Views.Popups.ProductSelectionPopup"
+        xmlns:ctls="clr-namespace:MyShop.Views.Controls" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyShop.Views.Windows"
+        mc:Ignorable="d" 
+        xmlns:converters="clr-namespace:MyShop.Converters"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Add Product" Height="700" Width="650"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Loaded="Window_Loaded"
+        Background="Transparent" AllowsTransparency="True"
+        ResizeMode="NoResize" FontFamily="Poppins">
+    <Window.Resources>
+        <converters:PriceConverter x:Key="priceConverter"/>
+        <converters:VisibilityCoverter x:Key="visibilityCoverter"/>
+        <Style TargetType="DataGridColumnHeader" x:Key="ActiveCellStyle">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Background" Value="{DynamicResource SecundaryBackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="15"/>
+
+        </Style>
+        <Style x:Key="MyDataGridRow" TargetType="DataGridRow">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="{DynamicResource SecundaryBackgroundColor}"/>
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}" />
+            <Setter Property="IsHitTestVisible" Value="True" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource PrimaryBlueColor}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}" />
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Trigger>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True" />
+                        <Condition Property="IsSelected" Value="False" />
+                    </MultiTrigger.Conditions>
+                    <MultiTrigger.Setters>
+                        <Setter Property="Background" Value="{DynamicResource ThirdBackgroundColor}"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </MultiTrigger.Setters>
+                </MultiTrigger>
+
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="MyDataGridCell" TargetType="DataGridCell"  BasedOn="{StaticResource {x:Type DataGridCell}}">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}" />
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+
+
+    <Border Background="{DynamicResource PrimaryBackgroundColor}"
+            CornerRadius="8">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <TextBlock 
+                    Text="{DynamicResource ProductSelection}" FontSize="30" 
+                    Margin="0 50 0 0"
+                    Foreground="{DynamicResource PrimaryTextColor}" 
+                    FontWeight="Bold"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <!-- Start: Button Close | Restore | Minimize -->
+            <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.RowSpan="2">
+                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
+                <Button x:Name="btnRestore" Margin="5,0" Click="btnRestore_Click">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonsStyle}">
+                            <Setter Property="Content" Value="{DynamicResource maximize}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=home, Path=WindowState}" Value="Maximized">
+                                    <Setter Property="Content" Value="{DynamicResource restore}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="btnMinimize" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource minimize}" Click="btnMinimize_Click"/>
+            </StackPanel>
+            <!-- End: Button Close | Restore | Minimize -->
+            <StackPanel Grid.Row="1" Width="550" Margin="0 20 0 0">
+                <StackPanel 
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0 0 0 20">
+                    <materialDesign:ColorZone
+                            Mode="Standard"
+                            Padding="8 4 8 4"
+                            CornerRadius="10"
+                            Panel.ZIndex="1"
+                           
+                            materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox
+                                    Name="txtBox"
+                                    Margin="10,0,10,0"
+                                    materialDesign:HintAssist.Hint="{DynamicResource Search}"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                    BorderThickness="0"
+                                    MinWidth="200"
+                                    VerticalAlignment="Center" Grid.ColumnSpan="2" />
+                            <Button Click="Button_Click"  Style="{StaticResource MaterialDesignToolButton}">
+                                <materialDesign:PackIcon Kind="Search" Opacity=".56" Width="20"/>
+                            </Button>
+                        </StackPanel>
+                    </materialDesign:ColorZone>
+                </StackPanel>
+                <DataGrid
+                        Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, Path=ActualHeight}"
+                        Name="myTable"
+                        CellStyle="{StaticResource MyDataGridCell}"
+                        RowStyle="{StaticResource MyDataGridRow}"
+                        Background="{DynamicResource SecundaryBackgroundColor}"
+                        IsReadOnly ="True"
+                        ColumnHeaderStyle="{StaticResource ActiveCellStyle}"
+                        SelectionUnit="FullRow"
+                        SelectionMode="Single"
+                        ItemsSource="{Binding Products}"
+                        CanUserSortColumns="True"
+                        CanUserAddRows="False"
+                        AutoGenerateColumns="False"
+                        HeadersVisibility="All">
+        
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="ID"  Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding ProductId}"/>
+                                    </StackPanel>
+
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="{DynamicResource Product}"  Width="4*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding ProductName}"/>
+                                    </StackPanel>
+
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="{DynamicResource Price}"  Width="3*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding ProductPrice, Converter={StaticResource priceConverter}}"/>
+                                    </StackPanel>
+
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="{DynamicResource InStock}" Width="2*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding ProductQuantity}"/>
+                                    </StackPanel>
+
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </StackPanel>
+
+            <StackPanel 
+                Grid.Row="2"
+                Margin="0 0 50 0"
+                Orientation="Horizontal" 
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right">
+                <Button 
+                    Width="90"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Name="Ok"
+                    Content="{DynamicResource Select}" IsDefault="True"
+                    Click="Ok_Click">
+
+                </Button>
+                <Button
+                    Margin="20 0 0 0"
+                    Width="90"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Name="Cancel"
+                    IsCancel="True"
+                    Content="{DynamicResource Close}">
+
+                </Button>
+            </StackPanel>
+        </Grid>
+
+    </Border>
+</Window>

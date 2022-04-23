@@ -1,0 +1,25 @@
+﻿<Application x:Class="MyShop.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="./Views/Windows/LoginWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary x:Name="Resoures">
+            <ResourceDictionary.MergedDictionaries>
+                <!--Language: index 0-->
+                <ResourceDictionary Source="./Resources/Languages/English.xaml"/> 
+                <!--Theme: index 1, 2-->
+                <ResourceDictionary Source="./Resources/Themes/DarkTheme.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+
+                
+                <ResourceDictionary Source="./Resources/Assets/Icons.xaml"/>
+
+                <ResourceDictionary Source="./Resources/Styles/MainStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
